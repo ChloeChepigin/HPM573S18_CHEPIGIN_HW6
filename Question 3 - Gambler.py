@@ -1,3 +1,6 @@
+# Question 3 Part 2 from the gambler's perspective -- I attempted to model what we did with
+# the multi-cohort section of the lab in class but honestly got stuck
+
 import numpy as np
 import scr.FigureSupport as figureLibrary
 import scr.StatisticalClasses as Stat
@@ -43,7 +46,7 @@ class Game(object):
 
 
 class SetOfGames:
-    def __init__(self, id, prob_head, n_games):
+    def __init__(self, id, prob_head, n_games)
         self._id=id
         self._gameRewards = []  # create an empty list where rewards will be stored
         self._probloss = []     # create an empty list where probability of losses will be stored
@@ -127,5 +130,22 @@ print("The probability of a single game yielding a loss is:", trial.get_probabil
 print('95% CI of game rewards', SimGame.get_CI_game_rewards(0.05))
 print('95% CI of prob loss', SimGame.get_CI_prob_loss(0.05))
 
+# Hw 6 Question 2
+class MultiGame:
+    def __init__(self, id, prob_head, n_games):
+        self._id = id
+        self._prob_head = prob_head
+        self._n_games = n_games
 
-#Q3 - steady state is owner so you have large enough sample size and you can look at the CI
+        self._gameRewards = []
+        self._meangameRewards = []
+        self._sumStat_meangameRewards = None
+
+    def simulate(self):
+        for i in range(len(self._id)):
+            setofgames = SetOfGames(self._id[i], self._prob_head[i], self._n_games[i])
+            #simulate the games
+            output = SetOfGames.simulate()
+            # store game rewards
+            self._gameRewards.append(SetOfGames.get_rewards())
+            # store

@@ -1,3 +1,5 @@
+#Question 3 Part 1 looking at the owner's perspective
+
 import numpy as np
 import scr.FigureSupport as figureLibrary
 import scr.StatisticalClasses as Stat
@@ -29,7 +31,7 @@ class Game(object):
 
     def get_reward(self):
         # calculate the reward from playing a single game
-        self._get_reward = 100*self._countWins - 250
+        self._get_reward = 250 - 100*self._countWins
         return self._get_reward
 
     def get_probability_loss(self):
@@ -128,4 +130,8 @@ print('95% CI of game rewards', SimGame.get_CI_game_rewards(0.05))
 print('95% CI of prob loss', SimGame.get_CI_prob_loss(0.05))
 
 
-#Q3 - steady state is owner so you have large enough sample size and you can look at the CI
+# Because in the case of the owner we are considering the steady state, as we have a large enough sample size,
+# we can look at the confidence intervals retrieved from question 1
+
+
+
